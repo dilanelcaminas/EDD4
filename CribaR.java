@@ -1,7 +1,20 @@
 import java.util.Scanner;
+/**
+ * Clase CribaR
+ *
+ * Genera los numeros primos del 1 hasta el numero que le indiques
+ *
+ * @author Dilan Sorribes Marzá
+ * @version 1.0
+ */
 public class CribaR {
+    /**
+     * Genera los numeros primos de 1 hasta el numero indicado
+     * @param max numero indicado hasta el que va a llegar la lista
+     * @return
+     */
     // Generar números primos de 1 a max
-    public static int[] generarPrimos (int max)
+    public static int[] generarNumPrimos (int max)
     {
         int i,j;
         if (max >= 2) {
@@ -21,14 +34,13 @@ public class CribaR {
                         esPrimo[j] = false;
                 }
             }
-// ¿Cuántos primos hay?
-            int cuenta = 0;
+            int cuentaPrimos = 0;
             for (i = 0; i < dim; i++) {
                 if (esPrimo[i])
-                    cuenta++;
+                    cuentaPrimos++;
             }
 // Rellenar el vector de números primos
-            int[] primos = new int[cuenta];
+            int[] primos = new int[cuentaPrimos];
             for (i = 0, j = 0; i < dim; i++) {
                 if (esPrimo[i])
                     primos[j++] = i;
@@ -39,6 +51,9 @@ public class CribaR {
 // Vector vacío
         }
     }
+    /**
+     * Muestran tanto la secuencia de numeros hasta el indicado como la sequencia de numeros primos
+     */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduce el número para la criba de Erastótenes:");
@@ -49,7 +64,7 @@ public class CribaR {
             if (i%10 == 0) System.out.println();
             System.out.print(i + 1 + "\t");
         }
-        vector = generarPrimos(dato);
+        vector = generarNumPrimos(dato);
         System.out.println("\nVector de primos hasta:" + dato);
         for (int i = 0; i < vector.length; i++) {
             if (i%10 == 0) System.out.println();
